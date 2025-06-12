@@ -1,5 +1,4 @@
---- 12-06-2025 08:55:05 SQLite
-/***** ERROR ******
+--- 12-06-2025 09:03:40 SQLite
 CREATE TABLE IF NOT EXISTS OS (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
     id_moto INTEGER,
@@ -17,8 +16,5 @@ VALUES (
   	'$150',
   	'1'
 );
- ----- 
-SQLITE_ERROR: sqlite3 result code 1: table OS has no column named os_dt_fim
-*****/
 
 
