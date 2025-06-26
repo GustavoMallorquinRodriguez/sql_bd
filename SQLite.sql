@@ -11,9 +11,9 @@ CREATE TABLE IF NOT EXISTS cliente (
 INSERT INTO cliente (cli_nome, cli_cpf, cli_telefone, cli_email, cli_data_nascimento, cli_endereco)
 VALUES (
 	'Iudy Schmoller',
-    '123-456-789-64',
+    '123-456-789-43',
     '(45) 995422647',
-    'meupau@seucu.com',
+    'mbababa@sebbebe.com',
     '1987-09-16',
     'Rua Seringueira, 245, Foz do Iguaçu - PR'
 );
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS funcionario (
 INSERT INTO funcionario (func_nome, func_cpf, func_telefone, func_setor, func_cargo, func_data_nascimento, id_end)
 VALUES (
   'Iudy Schmoller',
-  '123-456-789-69',
+  '123-456-789-43',
   '(45) 912478237',
   'eletrica',
   'gerente',
@@ -40,40 +40,38 @@ VALUES (
   'Rua Edmundo de barros, 210, Foz do Iguaçu - PR'
 );
 
-CREATE TABLE IF NOT EXISTS moto (
-	id_moto  INTEGER PRIMARY KEY AUTOINCREMENT,
-  	id_cli INTEGER,
-    moto_placa VARCHAR(7) not NULL unique,
-    moto_modelo VARCHAR(100),
-    moto_ano VARCHAR(4),
-  	id_serv INTEGER
-);
+  CREATE TABLE IF NOT EXISTS moto (
+    id_moto  INTEGER PRIMARY KEY AUTOINCREMENT,
+      id_cli INTEGER,
+      moto_placa VARCHAR(7) not NULL unique,
+      moto_modelo VARCHAR(100),
+      moto_ano VARCHAR(4),
+      id_serv INTEGER
+  );
 
-INSERT INTO moto (id_cli, moto_placa, moto_modelo, moto_ano, id_serv)
-VALUES (
-	'01',
-  	'CBW-8B34',
-  	'fazer 250',
-  	'2024',
-  	'01'
-);
+  INSERT INTO moto (id_cli, moto_placa, moto_modelo, moto_ano, id_serv)
+  VALUES (
+    '01',
+      'CBW-8B43',
+      'fazer 250',
+      '2024',
+      '01'
+  );
 
 
-CREATE TABLE IF NOT EXISTS servico (
+CREATE TABLE IF servico (
 	id_serv  INTEGER PRIMARY KEY AUTOINCREMENT,
   	id_func INTEGER,
     id_cli INTEGER,
-  	ser_descr TEXT,
+  	serv_descr VARCHAR(100),
     serv_duracao VARCHAR(100),
     serv_preco varchar(10)
 );
 
-INSERT INTO servico (id_func, id_cli, serv_descr, serv_duracao_serv, serv_preco)
+INSERT INTO servico (id_func, id_cli, serv_descr, serv_duracao, serv_preco)
 VALUES (
 	'01',
-  	'manutencao',
-	'01',
-  	'01',
+ 	'01',
   	'falta de oleo e calibrar pneu',
   	'uma hora e meia',	
  	'$500'
@@ -89,8 +87,7 @@ CREATE TABLE IF NOT EXISTS func_serv (
 INSERT INTO func_serv (id_serv, id_func)
 VALUES (
 	'01',
-  	'01',
-	'01'
+  	'01'
 );
 
 
@@ -124,7 +121,7 @@ CREATE TABLE IF NOT EXISTS Agendas_OS (
   	AGOS_valor VARCHAR(20) 
 );
 
-INSERT INTO Agendas_OS (id_OS, id_servico, id_funcionario, AGOS_dt_ini, AGOS_dt_fim, AGOS_valor)
+INSERT INTO Agendas_OS (id_OS, id_serv, id_func, AGOS_dt_ini, AGOS_dt_fim, AGOS_valor)
 VALUES (
 	'01',
   	'01',
@@ -135,25 +132,21 @@ VALUES (
 );
 
 
-CREATE TABLE IF NOT EXISTS Endereço (
+ CREATE TABLE IF NOT EXISTS Endereço (
 	id_end INTEGER PRIMARY KEY AUTOINCREMENT,
-    end_cep VARCHAR(10),
+    end_cep VARCHAR(10) NOT NULL,
   	end_cidade VARCHAR(100),
   	end_rua VARCHAR(100),
   	end_numero VARCHAR(100),
     end_bairro VARCHAR(100)
 );
 
-INSERT INTO  (end_cep, end_cidade, end_rua, end_numero, end_bairro)
+INSERT INTO  Endereço (end_cep, end_cidade, end_rua, end_numero, end_bairro)
 VALUES (
-  "858580-30",
-  "Foz do Iguaçu",
-  "Rua ",
-  "",
-  ""
+  '858580-30',
+  'Foz do Iguaçu',
+  'Rua Perola',
+  'N°65',
+  'Vila Yolanda'
 );
-
-
-
-
-
+SELECT * FROM Endereço;
